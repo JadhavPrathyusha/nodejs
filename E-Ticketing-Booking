@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Event | E-Ticketing</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1d2671, #c33764);
+      color: #fff;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.6) !important;
+      backdrop-filter: blur(6px);
+    }
+
+    .booking-card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .form-control, .form-select {
+      border-radius: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff512f, #dd2476);
+      border: none;
+      border-radius: 25px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold">🎟️ E-Ticketing System</a>
+  </div>
+</nav>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Book Your Event</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-sm-11">
+      <form class="card booking-card p-4 shadow-lg"
+            onsubmit="searchEvents(); return false;">
+        <!-- Event Category -->
+        <div class="mb-3">
+          <label class="form-label">Event Category</label>
+          <select class="form-select" required>
+            <option value="">Select category</option>
+            <option>Movie</option>
+            <option>Concert</option>
+            <option>Sports</option>
+            <option>Conference</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <!-- Event Name -->
+        <div class="mb-3">
+          <label class="form-label">Event Name</label>
+          <input type="text" class="form-control"
+                 placeholder="Eg: IPL Match / Avengers Movie" required>
+        </div>
+        <!-- Event Date -->
+        <div class="mb-3">
+          <label class="form-label">Event Date</label>
+          <input type="date" class="form-control" required>
+        </div>
+
+        <!-- Tickets -->
+        <div class="mb-4">
+          <label class="form-label">Number of Tickets</label>
+          <input type="number" class="form-control" min="1" value="1" required>
+        </div>
+
+        <button class="btn btn-primary w-100">
+          View Available Events
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  function searchEvents() {
+    // redirect to events listing page
+    window.location.href = "availabletickets.html";
+  }
+</script>
+
+</body>
+</html>
