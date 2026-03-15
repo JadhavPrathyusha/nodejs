@@ -1,0 +1,54 @@
+<script>
+    let number1=10;
+    let number2=20;
+    var text="hello all welcome to JS";
+// console.log("the sum is"+number1+number2);
+// /document.writeln(number1+number2);
+// console.log(addition(234.353));
+// function addition(num1 , num2){
+// return num1+num2;
+// }
+
+        function addition(){
+            let number1=parseInt(document.getElementById("number1").value);
+            let number2=parseInt(document.getElementById("number2").value);
+            document.getElementById("Result_ID").innerHTML="The sum is:"+(number1+number2);
+        }
+        function subtract(){
+            let number1=parseInt(document.getElementById("number1").value);
+            let number2=parseInt(document.getElementById("number2").value);
+            document.getElementById("Result_ID").innerHTML="The difference is:"+(number1-number2);
+        }
+        function multiply(){
+            let number1=parseInt(document.getElementById("number1").value);
+            let number2=parseInt(document.getElementById("number2").value);
+            document.getElementById("Result_ID").innerHTML="The multiplcation is:"+(number1*number2);
+        }
+        function divsion(){
+            let number1=parseInt(document.getElementById("number1").value);
+            let number2=parseInt(document.getElementById("number2").value);
+            document.getElementById("Result_ID").innerHTML="The division is:"+(number1/number2);
+        }
+            //console.log("sum is:"+(number1+number2));
+            //alert("The sum of two numbers is:"+(number1+number2));
+</script>
+<div style="text-align: center;">
+    <form>
+        <h2 style="color:rgb(228, 29, 235)">Addition</h2>
+        <div>
+            <label>Enter number1</label>
+            <input type="text" id="number1" name="number1"/>
+        </div>
+        <div>
+            <label>Enter number2</label>
+            <input type="text" id="number2" name="number2"/>
+        </div>
+        <div>
+            <input type="button" style="color:rgb(240, 73, 7)" value="Add" onclick="addition()"/>
+            <input type="button" style="color:rgb(240, 73, 7)" value="sub" onclick="subtract()"/>
+            <input type="button" style="color:rgb(240, 73, 7)" value="mul" onclick="multiply()"/>
+            <input type="button" style="color:rgb(240, 73, 7)" value="div" onclick="divsion()"/>
+            <h4 id="Result_ID">Result will be displayed: </h4>
+        </div>
+    </form>
+</div>
