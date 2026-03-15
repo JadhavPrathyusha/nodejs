@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Catalog</title>
+
+<style>
+/* ===== GENERAL ===== */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(to right, #eef2f3, #dfe9f3);
+}
+
+/* ===== HEADER ===== */
+header {
+    background: #111;
+    color: white;
+    padding: 18px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 18px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #4caf50;
+}
+
+/* ===== MAIN ===== */
+main {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+main h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* ===== PRODUCT GRID ===== */
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* ===== PRODUCT CARD ===== */
+.product-item {
+    background: white;
+    border-radius: 15px;
+    padding: 30px 20px;
+    width: 260px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.product-item h3 {
+    margin-bottom: 15px;
+    color: #222;
+    font-size: 20px;
+}
+
+.product-item p {
+    font-size: 22px;
+    color: #4caf50;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* ===== BUTTONS ===== */
+.product-item button {
+    background: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.product-item button:hover {
+    background: #45a049;
+}
+
+.view-cart-button {
+    margin-top: 50px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.view-cart-button:hover {
+    background: #e68900;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .product-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-item {
+        width: 90%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🛒 My E-Commerce Store</h1>
+<nav>
+<ul>
+<li><a href="ecommerce.html">Home</a></li>
+<li><a href="catalog_eco.html">Catalog</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="shopping_cart.html">Cart</a></li>
+</ul>
+</nav>
+</header>
+
+<main>
+<h2>✨ Product Catalog</h2>
+
+<div class="product-grid">
+
+<div class="product-item">
+<h3>Books Collection</h3>
+<p>$29.99</p>
+<button onclick="addToCart('Books Collection', 29.99)">Add to Cart</button>
+</div>
+
+<div class="product-item">
+<h3>web Development</h3>
+<p>$39.99</p>
+<button onclick="addToCart('web Development', 39.99)">Add to Cart</button>
+</div>
+
+<div class="product-item">
+<h3>Computer Science</h3>
+<p>$49.99</p>
+<button onclick="addToCart('Computer Science', 49.99)">Add to Cart</button>
+</div>
+
+</div>
+
+<button class="view-cart-button" onclick="viewCart()">View Cart</button>
+
+</main>
+
+<script>
+function addToCart(productName, productPrice) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    let existingProduct = cart.find(item => item.name === productName);
+
+    if (existingProduct) {
+        existingProduct.quantity += 1;
+    } else {
+        cart.push({
+            name: productName,
+            price: productPrice,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(productName + " added to cart successfully!");
+}
+
+function viewCart() {
+    window.location.href = "cart_eco.html";
+}
+</script>
+
+</body>
+</html>
